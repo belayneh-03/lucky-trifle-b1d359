@@ -1,0 +1,381 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #27ae60;
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --white: #ffffff;
+    --error-color: #e74c3c;
+    --bot-bg: #e1f5fe;
+    --user-bg: #c8e6c9;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+#app {
+    width: 100%;
+    max-width: 800px;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    padding: clamp(8px, 2vh, 16px);
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Card Style */
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.card input {
+    width: 80%;
+    padding: 12px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.card button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card button:hover {
+    background-color: #2980b9;
+}
+
+/* Bot Container Styles */
+#bot-container {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background: var(--bot-bg);
+    border-bottom-left-radius: 2px;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: var(--user-bg);
+    border-bottom-right-radius: 2px;
+}
+
+.chat-input-area {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.chat-input-area button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Exam Container Styles */
+#exam-container {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    padding: clamp(12px, 2.5vh, 24px) clamp(12px, 3vw, 28px);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+.exam-header {
+    flex: 0 0 auto;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: clamp(8px, 1.5vh, 14px);
+    padding-bottom: clamp(8px, 1.5vh, 14px);
+}
+
+.exam-header h1 {
+    margin: 0;
+    font-size: clamp(1.15rem, 3vh, 1.8rem);
+    color: var(--primary-color);
+}
+
+.exam-header h2 {
+    margin: 4px 0 0;
+    font-size: clamp(0.9rem, 2vh, 1.2rem);
+    color: var(--secondary-color);
+}
+
+#biology-exam {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.student-details {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.student-details label {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.student-details input {
+    min-width: 0;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font: inherit;
+}
+
+.question-list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.question-slide {
+    display: none;
+    min-height: 0;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+.question-slide.active {
+    display: block;
+}
+
+.question-slide p {
+    margin: 0 0 clamp(8px, 1.5vh, 14px);
+    font-size: clamp(0.82rem, 1.8vh, 1.1rem);
+    line-height: 1.35;
+}
+
+.options {
+    display: grid;
+    gap: clamp(3px, 0.8vh, 7px);
+    font-size: clamp(0.8rem, 1.7vh, 1rem);
+    line-height: 1.25;
+}
+
+.options label {
+    display: block;
+}
+
+.question-slide input[type="text"] {
+    max-width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.navigation-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 8px;
+    margin-top: clamp(8px, 1.5vh, 14px);
+}
+
+.nav-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 9px clamp(12px, 3vw, 25px);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#question-counter {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#submit-exam {
+    background: var(--accent-color);
+}
+
+#submission-status {
+    flex: 0 0 auto;
+    margin: 4px 0 0;
+    color: var(--error-color);
+    font-size: 0.9rem;
+}
+
+.integrity-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(25, 35, 45, 0.82);
+}
+
+.integrity-overlay .card {
+    width: min(100%, 480px);
+}
+
+@media (max-height: 520px) {
+    #exam-container {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .exam-header {
+        margin-bottom: 6px;
+        padding-bottom: 6px;
+    }
+
+    .question-slide p {
+        margin-bottom: 6px;
+        font-size: 0.82rem;
+    }
+
+    .options {
+        gap: 2px;
+        font-size: 0.78rem;
+    }
+
+    .navigation-btns {
+        margin-top: 6px;
+    }
+
+    .student-details {
+        margin-bottom: 4px;
+    }
+
+    .student-details label {
+        font-size: 0.75rem;
+    }
+
+    .student-details input {
+        padding: 4px;
+    }
+}
+
+.result-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.score-display {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 15px 0;
+}
+
+.correct-text { color: var(--accent-color); }
+.wrong-text { color: var(--error-color); }
+
+
+.error {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
